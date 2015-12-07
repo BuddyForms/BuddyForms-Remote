@@ -18,10 +18,11 @@
             var res = str.replace("edit", "remote");
             jQuery(obj).attr("target", '_blank');
         });
-
-
+        jQuery('#editpost_<?php echo get_query_var('bf_form_slug'); ?>').append('<input type="hidden" name="remote" value="remote" />');
     });
 
 </script>
+
+
 <?php the_content()?>
 <?php wp_footer() ?>

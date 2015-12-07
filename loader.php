@@ -33,7 +33,8 @@ function buddyforms_remote_init(){
     define('BUDDYFORMS_REMOTE_PLUGIN_PATH', dirname(__FILE__) . '/');
 
     require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/admin/admin-settings.php' );
-    require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/rewrite-roles.php' );
+    require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/admin/form-elements.php' );
+    require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/functions.php' );
 
 }
 add_action('init', 'buddyforms_remote_init');
@@ -49,7 +50,7 @@ function buddyforms_remote_rewrite_rules($flush_rewrite_rules = FALSE){
         return;
 
     foreach ($buddyforms as $key => $buddyform) {
-        if(isset($buddyform['attached_page'])){
+        if(isset($buddyform['attached_page']) && isset($buddyform['remote'])){
             $post_data = get_post($buddyform['attached_page'], ARRAY_A);
             add_rewrite_rule($post_data['post_name'].'/remote-create/([^/]+)/([^/]+)/?', 'index.php?pagename='.$post_data['post_name'].'&bf_action=remote_create&bf_form_slug=$matches[1]&bf_parent_post_id=$matches[2]', 'top');
             add_rewrite_rule($post_data['post_name'].'/remote-create/([^/]+)/?', 'index.php?pagename='.$post_data['post_name'].'&bf_action=remote_create&bf_form_slug=$matches[1]', 'top');
@@ -64,19 +65,3 @@ function buddyforms_remote_rewrite_rules($flush_rewrite_rules = FALSE){
         flush_rewrite_rules();
 }
 add_action('init', 'buddyforms_remote_rewrite_rules');
-/**
- * add the query vars
- *
- * @package BuddyForms
- * @since 0.3 beta
- */
-add_filter('query_vars', 'buddyforms_remote_query_vars');
-function buddyforms_remote_query_vars($query_vars){
-
-    if(is_admin())
-        return $query_vars;
-
-    $query_vars[] = 'bf_remote_action';
-
-    return $query_vars;
-}

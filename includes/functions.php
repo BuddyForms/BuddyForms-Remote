@@ -58,6 +58,11 @@ add_action( 'template_include', 'buddyforms_remote_templates');
 
 
 function buddyforms_remote_after_save_post_redirect($url){
+
+    if(!isset($_POST['remote']))
+        return $url;
+
     return str_replace('view', 'remote-view', $url);
+
 }
 add_filter('buddyforms_after_save_post_redirect', 'buddyforms_remote_after_save_post_redirect', 10, 1);

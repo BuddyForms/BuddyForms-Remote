@@ -91,7 +91,11 @@ function bf_remote_screen(){
         <input type="hidden" value="<?php echo get_bloginfo('url') ?>">
         <select id="buddyforms_toggle_form">
             <option value="none">Select Form</option>
-            <?php foreach ($buddyforms as $form_key => $form) { ?>
+            <?php foreach ($buddyforms as $form_key => $form) {
+
+                if(!isset($form['remote']))
+                    continue;
+                ?>
                 <option value="<?php echo $form_key ?>"><?php echo $form['name'] ?></option>
             <?php } ?>
         </select>
@@ -129,3 +133,24 @@ function buddyforms_remote_toggle_generate(){
     die();
 }
 add_action('wp_ajax_buddyforms_remote_toggle_generate', 'buddyforms_remote_toggle_generate');
+
+
+function buddyforms_remote_add_button_to_submit_box() {
+    global $post;
+
+    if (get_post_type($post) != 'buddyforms')
+        return;
+
+    $buddyform = get_post_meta($post->ID, '_buddyforms_options', true);
+
+    if(!isset($buddyform['remote']))
+        return;
+
+    $attached_page_permalink = isset($buddyform['attached_page']) ? get_permalink($buddyform['attached_page']) : '';
+
+    echo '<a class="button button-large bf_button_action" href="'.$attached_page_permalink . 'remote-view/' . $post->post_name . '/" target="_new">'.__('View Remote Posts', 'buddyforms').'</a>
+    <a class="button button-large bf_button_action" href="'.$attached_page_permalink . 'remote-create/' . $post->post_name . '/" target="_new">'.__('View Remote Form', 'buddyforms').'</a>';
+
+
+}
+add_action( 'post_submitbox_start', 'buddyforms_remote_add_button_to_submit_box' );
