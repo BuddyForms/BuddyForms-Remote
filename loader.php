@@ -27,65 +27,21 @@
  *
  ****************************************************************************
  */
-/**
-* Custom Templates
-*
-*/
-function bf_custom_templates( $template ) {
-    global $buddyforms;
 
-    if(!$buddyforms)
-        return $template;
+function buddyforms_remote_init(){
+    define('BUDDYFORMS_REMOTE_PLUGIN_URL', plugin_dir_url( __FILE__ ));
+    define('BUDDYFORMS_REMOTE_PLUGIN_PATH', dirname(__FILE__) . '/');
 
-    $action          = get_query_var( 'bf_action' )          ? get_query_var( 'bf_action' ) : '';
-    $form_slug       = get_query_var( 'bf_form_slug' )       ? get_query_var( 'bf_form_slug' ) : '';
-    $post_id         = get_query_var( 'bf_post_id' )         ? get_query_var( 'bf_post_id' ) : '';
-    $parent_post_id  = get_query_var( 'bf_parent_post_id' )  ? get_query_var( 'bf_parent_post_id' ) : '';
-    $rev_id          = get_query_var( 'bf_rev_id' )          ? get_query_var( 'bf_rev_id' ) : '';
+    require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/admin/admin-settings.php' );
+    require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/rewrite-roles.php' );
 
-
-//    if(isset($_GET['bf-remote'])){
-//        $remote = $_GET['bf-remote'];
-//        $template = plugin_dir_path( __FILE__ ) .'templates/buddyforms/app-view.php';
-//    }
-
-
-    if(empty($action))
-        return $template;
-
-    if(empty($form_slug))
-        return $template;
-
-    if($action == 'api')
-        $template = plugin_dir_path( __FILE__ ) .'templates/buddyforms/api-loader.php';
-
-    if($action == 'remote_create'){
-        $template = plugin_dir_path( __FILE__ ) .'templates/buddyforms/app-view.php';
-        set_query_var('bf_action', 'create');
-    }
-
-    if($action == 'remote_view'){
-        $template = plugin_dir_path( __FILE__ ) .'templates/buddyforms/app-view.php';
-        set_query_var('bf_action', 'view');
-    }
-
-    if($action == 'remote_edit'){
-        $template = plugin_dir_path( __FILE__ ) .'templates/buddyforms/app-view.php';
-        set_query_var('bf_action', 'edit');
-    }
-
-
-
-
-    //$template = get_query_template( $post_type . '-' . $section );
-    return $template;
 }
-add_action( 'template_include', 'bf_custom_templates' );
+add_action('init', 'buddyforms_remote_init');
 
-add_action('init', 'buddyforms_remote_rewrite_rules');
+
 function buddyforms_remote_rewrite_rules($flush_rewrite_rules = FALSE){
     global $buddyforms;
-    define('BUDDYFORMS_MODERATION', plugin_dir_url( __FILE__ ));
+
     if ( !is_admin() )
         return;
 
@@ -107,8 +63,20 @@ function buddyforms_remote_rewrite_rules($flush_rewrite_rules = FALSE){
     if($flush_rewrite_rules)
         flush_rewrite_rules();
 }
-add_filter('buddyforms_after_save_post_redirect', 'buddyforms_remote_after_save_post_redirect', 10, 1);
+add_action('init', 'buddyforms_remote_rewrite_rules');
+/**
+ * add the query vars
+ *
+ * @package BuddyForms
+ * @since 0.3 beta
+ */
+add_filter('query_vars', 'buddyforms_remote_query_vars');
+function buddyforms_remote_query_vars($query_vars){
 
-function buddyforms_remote_after_save_post_redirect($url){
-    return str_replace('view', 'remote-view', $url);
+    if(is_admin())
+        return $query_vars;
+
+    $query_vars[] = 'bf_remote_action';
+
+    return $query_vars;
 }

@@ -1,10 +1,8 @@
 /**
- * wp-widget.js
+ * api-loader.js
  *
- * Inserts an iframe into the DOM and calls the remote embed plugin
- * via a get parameter:
- * e.g http://www.example.com/?embed=posts
- * This is intercepted by the remote 'WordPress Widget Embed' plugin
+ * Inserts an Toggle into the DOM and calls the remote api. Set the action via a get parameter:
+ * e.g http://www.example.com/?bf-remote=create
  *
  */
 
@@ -56,16 +54,25 @@
     {
         jQuery(document).ready(function($)
         {
-            var cssLink = $("<link rel='stylesheet' type='text/css' href='<?php echo BUDDYFORMS_MODERATION .'assets/toggle.css'; ?>'>");
+            var cssLink = $("<link rel='stylesheet' type='text/css' href='<?php echo BUDDYFORMS_REMOTE_PLUGIN_URL .'assets/toggle.css'; ?>'>");
             $("head").append(cssLink);
-
-<!--            var jsLink = $("<script type='text/javascript' src='--><?php //echo BUDDYFORMS_MODERATION .'assets/toggle.js'; ?><!--'>");-->
-<!--            $("head").append(jsLink);-->
 
             /* Set 'height' and 'width' according to the content type */
             var iframeContent = '' +
                 '<div id="bf-remote-tab"><div id="bf-remote-container">' +
-                '<iframe style="height: 100%; width: 100%; "src="http://buddyforms/sample-page/remote-<?php echo $_GET['action'] ?>/sadsa/"></iframe>' +
+                '<iframe style="height: 100%; width: 100%; "src="<?php
+
+        global $buddyforms;
+        $form_slug      = get_query_var( 'bf_form_slug' )       ? get_query_var( 'bf_form_slug' ) : '';
+        $attached_page  = get_post($buddyforms[$form_slug]['attached_page']);
+        $attached_page  = $attached_page->post_name;
+
+        $api_action = 'create';
+        if(isset($_GET['action']))
+            $api_action = $_GET['action'];
+
+
+        echo get_bloginfo('url') ?>/<?php echo $attached_page ?>/remote-<?php echo $api_action ?>/<?php echo $form_slug ?>/"></iframe>' +
                 '</div><a class="bf-burger"><span>Toggle</span></a> </div>';
             $('body').append(iframeContent);
 

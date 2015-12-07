@@ -2,11 +2,9 @@
 <?php show_admin_bar(false); ?>
 <?php wp_head() ?>
 <style>
-
     html {
         margin-top: 0px !important;
     }
-
 </style>
 <script>
     jQuery('document').ready(function() {
