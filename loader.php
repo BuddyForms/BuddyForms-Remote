@@ -2,7 +2,7 @@
 /*
  Plugin Name: BuddyForms Remote
  Plugin URI: http://buddyforms.com/downloads/buddyforms-hierarchical-posts/
- Description: BuddyForms Hierarchical Posts like Journal/logs
+ Description:   ...
  Version: 1.0
  Author: Sven Lehnert
  Author URI: https://profiles.wordpress.org/svenl77

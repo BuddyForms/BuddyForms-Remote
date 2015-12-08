@@ -67,19 +67,14 @@ function bf_remote_screen(){
     <div id="bf_admin_wrap" class="wrap">
         <?php include(BUDDYFORMS_INCLUDES_PATH . 'admin/admin-credits.php'); ?>
         <h2>BuddyForms Remote</h2>
-        <p>With BuddyForms Remote you Forms can be used everywhere. On any site even non WordPress sites like any other self hosted cms or site, facebook or in your APP</p>
-
         <h3>Different integrations</h3>
 
         <p><b>URL End Point</b></p>
-        <p>You can use URL EndPoints to display your form without your theme. This is perfect to use on FaceBook or in iFrames.</p>
+        <p>You can use URL EndPoints to display your form without your theme. This is perfect to create a FaceBook App or us in iFrames.</p>
 
         <p><b>Toggle Embed Code</b></p>
         <p>
-            A Toggle is the most advanced and user frindly wjhy of writing. It is used by many Help Services to give users a quick access to support and get in contact.<br>
-            Its used by many famoust Mail Provider like Google Inbox to write Mails<br>
-            And its a super confortable why to ancounter your user to write. If on the main site or on any site. The Toggle Embad works everyWhere with just one line of code to embad ;)
-        </p>
+          </p>
 
         <h3>Create Toggle Embed Code</h3>
         <p>Select the Form and Action</p>
