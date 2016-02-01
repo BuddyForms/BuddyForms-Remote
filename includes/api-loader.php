@@ -60,7 +60,7 @@
             /* Set 'height' and 'width' according to the content type */
             var iframeContent = '' +
                 '<div id="bf-remote-tab"><div id="bf-remote-container">' +
-                '<iframe style="height: 100%; width: 100%; "src="<?php
+                '<iframe id="bf-frame" style="height: 100%; width: 100%; "src="<?php
 
         global $buddyforms;
         $form_slug      = get_query_var( 'bf_form_slug' )       ? get_query_var( 'bf_form_slug' ) : '';
@@ -88,5 +88,3 @@
     }
 
 })();
-
-

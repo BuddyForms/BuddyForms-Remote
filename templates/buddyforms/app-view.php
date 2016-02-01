@@ -4,6 +4,34 @@
 <style>
     html {
         margin-top: 0px !important;
+        background: #fafafa;
+    }
+    .buddyforms_posts_list ul.buddyforms-list li {
+        padding: 10px;
+        background: #fafafa;
+    }
+    .buddyforms_posts_list ul.buddyforms-list .item-status {
+        text-shadow: none;
+    }
+    .buddyforms_posts_list ul.buddyforms-list li div.action {
+        margin-top: 5px;
+    }
+    .buddyforms_posts_list ul.buddyforms-list .item-title a {
+        color: #0c7572;
+        font-size: 21px;
+        font-weight: bold;
+    }
+    .buddyforms_posts_list a {
+      color: #0c7572;
+    }
+    .buddyforms_posts_list {
+      color: #2e2e2e;
+      font-size: 15px;
+    }
+    .the_buddyforms_form {
+    }
+    form#loginform {
+      margin: 20px 0;
     }
 </style>
 <script>

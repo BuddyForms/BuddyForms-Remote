@@ -1,13 +1,11 @@
+/* The Remote Tab Conatiner */
 #bf-remote-tab {
     position: fixed;
     right: 20px;
     bottom: 20px;
 }
 #bf-remote-container {
-    background: #f7f7f7;
-    border: 1px solid #ddd;
-    border-width: 0;
-    border-radius: 9px;
+    border-radius: 0;
     transition: all 0.2s cubic-bezier(0.5, 0, .6, 1) 0.35s;
     position: fixed;
     right: 40px;
@@ -25,28 +23,13 @@
     bottom: 60px;
     right: 60px;
 }
-
-/* not working yet ... */
-
-/*   -webkit-animation-name: grow;
-  animation-name: grow; */
-
-/*
-@-webkit-keyframes grow {
-    0% { height: 0; }
-    50% { height: 150px; }
-    85% { height: 330px; }
-    100% { height: 300px; }
+iframe#bf-frame {
+  border: 1px solid #ddd;
+  padding: 5px 0;
+  border-radius: 0;
+  background: #fafafa;
 }
-
-@keyframes grow {
-    0% { height: 0; }
-    50% { height: 150px; }
-    90% { height: 330px; }
-    100% { height: 300px; }
-}
-*/
-
+/* The Burger Icon */
 .bf-burger {
     display: block;
     position: fixed;
@@ -55,8 +38,8 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
-    width: 96px;
-    height: 96px;
+    width: 86px;
+    height: 86px;
     font-size: 0;
     text-indent: -9999px;
     -webkit-appearance: none;
@@ -79,10 +62,10 @@
 .bf-burger span {
     display: block;
     position: absolute;
-    top: 44px;
-    left: 21px;
-    right: 21px;
-    height: 8px;
+    top: 41px;
+    left: 23px;
+    right: 22px;
+    height: 5px;
     background: #fff;
     -webkit-transition: background 0s .3s;
     transition: background 0s .3s;
@@ -101,7 +84,7 @@
     display: block;
     left: 0;
     width: 100%;
-    height: 8px;
+    height: 5px;
     background-color: #fff;
     content: "";
     -webkit-transition-duration: .3s,.3s;
@@ -110,12 +93,12 @@
     transition-delay: .3s,0s;
 }
 .bf-burger span::before {
-    top: -17px;
+    top: -12px;
     -webkit-transition-property: top,-webkit-transform;
     transition-property: top,transform;
 }
 .bf-burger span::after {
-    bottom: -17px;
+    bottom: -12px;
     -webkit-transition-property: bottom,-webkit-transform;
     transition-property: bottom,transform;
 }
