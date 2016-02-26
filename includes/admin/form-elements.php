@@ -17,7 +17,7 @@ function buddyforms_remote_admin_settings_sidebar_metabox_html(){
     if(isset($buddyform['remote']))
         $remote = $buddyform['remote'];
 
-    $form_setup[] = new Element_Checkbox("<p>" . __('Enabled Remote to generate new endpoinds and the toggle for this form. You need to save the form onece to generate the new endpoints and toggle embed codes.', 'buddyforms') . "</p>", "buddyforms_options[remote]", array("remote" => "Enable Remote"), array('value' => $remote));
+    $form_setup[] = new Element_Checkbox("<p>" . __('Enable Remote to generate new endpoinds and the toggle for this form. You need to save the form once to generate the new endpoints and toggle embed codes.', 'buddyforms') . "</p>", "buddyforms_options[remote]", array("remote" => "Enable Remote"), array('value' => $remote));
 
     $form_setup[] = new Element_HTML(__('', 'buddyforms'));
 
@@ -41,13 +41,13 @@ function buddyforms_remote_admin_settings_sidebar_metabox_html(){
       $form_setup[] = new Element_HTML(' View embed code: <input type="text" onFocus="this.focus();this.select()" value="' . $url . '" />');
 
       $form_setup[] = new Element_HTML('
-          <br><p><b>URL Endponds</b></p>
-          <p>You can use URL endpoints to display your forms in iframes. Two new buttons have been added to the publish sitebar metabox</p>
+          <br><p><b>URL Endpoints</b></p>
+          <p>You can use URL endpoints to display your forms in iFrames. Two new buttons have been added to the "publish" sitebar metabox.</p>
           ');
 
       $form_setup[] = new Element_HTML('
           <br><p><b>Tip</b></p>
-          <p>Select "Display the User\'s Post List " in the Form Setup "After Submission" options will generate a closed workflow and enable posting and endeting within the Toggle or iFrame</p>
+          <p>Selecting "Display the User\'s Post List" in the Form Setup "After Submission" will generate a closed workflow and enable posting and editing within the Toggle or iFrame.</p>
           ');
 
     }
