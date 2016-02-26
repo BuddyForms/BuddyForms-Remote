@@ -1,6 +1,4 @@
-
-<?php show_admin_bar(false); ?>
-<?php wp_head() ?>
+<?php show_admin_bar(false); wp_head() ?>
 <style>
     html {
         margin-top: 0px !important;
@@ -50,7 +48,6 @@
     });
 
 </script>
-
 
 <?php the_content()?>
 <?php wp_footer() ?>

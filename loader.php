@@ -2,7 +2,7 @@
 /*
  Plugin Name: BuddyForms Remote
  Plugin URI: http://buddyforms.com/downloads/buddyforms-hierarchical-posts/
- Description:   ...
+ Description: BuddyForms Remote provides your Forms where ever they are needed! Use BuddyForms Forms on any Website (WP and NON WP Sites) Inline or as Toggle.
  Version: 1.0
  Author: Sven Lehnert
  Author URI: https://profiles.wordpress.org/svenl77
@@ -32,7 +32,6 @@ function buddyforms_remote_init(){
     define('BUDDYFORMS_REMOTE_PLUGIN_URL', plugin_dir_url( __FILE__ ));
     define('BUDDYFORMS_REMOTE_PLUGIN_PATH', dirname(__FILE__) . '/');
 
-    require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/admin/admin-settings.php' );
     require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/admin/form-elements.php' );
     require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/functions.php' );
 

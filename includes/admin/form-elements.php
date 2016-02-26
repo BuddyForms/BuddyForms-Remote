@@ -42,7 +42,7 @@ function buddyforms_remote_admin_settings_sidebar_metabox_html(){
 
       $form_setup[] = new Element_HTML('
           <br><p><b>URL Endponds</b></p>
-          <p>You can use URL endpoints to display your forms in iframes. Two now Buttons have been added to the Publish Sitebar MetaBox</p>
+          <p>You can use URL endpoints to display your forms in iframes. Two new buttons have been added to the publish sitebar metabox</p>
           ');
 
     }
@@ -55,3 +55,23 @@ function buddyforms_remote_admin_settings_sidebar_metabox_html(){
     }
 }
 add_filter('add_meta_boxes','buddyforms_remote_admin_settings_sidebar_metabox');
+
+function buddyforms_remote_add_button_to_submit_box() {
+    global $post;
+
+    if (get_post_type($post) != 'buddyforms')
+        return;
+
+    $buddyform = get_post_meta($post->ID, '_buddyforms_options', true);
+
+    if(!isset($buddyform['remote']))
+        return;
+
+    $attached_page_permalink = isset($buddyform['attached_page']) ? get_permalink($buddyform['attached_page']) : '';
+
+    echo '<a class="button button-large bf_button_action" href="'.$attached_page_permalink . 'remote-view/' . $post->post_name . '/" target="_new">'.__('View Remote Posts', 'buddyforms').'</a>
+    <a class="button button-large bf_button_action" href="'.$attached_page_permalink . 'remote-create/' . $post->post_name . '/" target="_new">'.__('View Remote Form', 'buddyforms').'</a>';
+
+
+}
+add_action( 'post_submitbox_start', 'buddyforms_remote_add_button_to_submit_box' );
