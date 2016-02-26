@@ -45,14 +45,19 @@ function buddyforms_remote_admin_settings_sidebar_metabox_html(){
           <p>You can use URL endpoints to display your forms in iframes. Two new buttons have been added to the publish sitebar metabox</p>
           ');
 
-    }
+      $form_setup[] = new Element_HTML('
+          <br><p><b>Tip</b></p>
+          <p>Select "Display the User\'s Post List " in the Form Setup "After Submission" options will generate a closed workflow and enable posting and endeting within the Toggle or iFrame</p>
+          ');
 
+    }
 
     foreach($form_setup as $key => $field){
         echo '<div class="buddyforms_field_label">' . $field->getLabel() . '</div>';
         echo '<div class="buddyforms_field_description">' . $field->getShortDesc() . '</div>';
         echo '<div class="buddyforms_form_field">' . $field->render() . '</div>';
     }
+
 }
 add_filter('add_meta_boxes','buddyforms_remote_admin_settings_sidebar_metabox');
 

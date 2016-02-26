@@ -4,6 +4,10 @@
         margin-top: 0px !important;
         background: #fafafa;
     }
+    ul.buddyforms-list {
+        margin: 20px -40px;
+        list-style: none outside none !important;
+    }
     .buddyforms_posts_list ul.buddyforms-list li {
         padding: 10px;
         background: #fafafa;
@@ -46,8 +50,5 @@
         });
         jQuery('#editpost_<?php echo get_query_var('bf_form_slug'); ?>').append('<input type="hidden" name="remote" value="remote" />');
     });
-
 </script>
-
-<?php the_content()?>
-<?php wp_footer() ?>
+<?php the_content(); wp_footer() ?>

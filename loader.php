@@ -38,7 +38,6 @@ function buddyforms_remote_init(){
 }
 add_action('init', 'buddyforms_remote_init');
 
-
 function buddyforms_remote_rewrite_rules($flush_rewrite_rules = FALSE){
     global $buddyforms;
 
