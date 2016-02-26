@@ -12,15 +12,6 @@
  * @package buddyforms
  * @since 0.1-beta
  */
-function buddyforms_remote_create_sub_menu(){
-
-    if (!session_id()) ;
-    @session_start();
-
-    add_submenu_page('edit.php?post_type=buddyforms', __('Remote', 'buddyforms'), __('Remote', 'buddyforms'), 'manage_options', 'bf_remote', 'bf_remote_screen');
-
-}
-add_action('admin_menu', 'buddyforms_remote_create_sub_menu');
 
 function bf_remote_screen(){
     global $buddyforms;
