@@ -1,5 +1,5 @@
 === BuddyForms Remote ===
-Contributors: Sven Lehnert, BuddyForms
+Contributors: svenl77, BuddyForms
 Tags: buddypress, user, members, profiles, custom post types, taxonomy, frontend posting, frontend editing, remote, iframe, embed, embedded, toggle
 Requires at least: WordPress 3.9
 Tested up to: WordPress 4.4.2
@@ -37,6 +37,9 @@ Just embed the embed code where ever you need it and you are done.
 
 If you use the endpoints in iframes, a special template is called without header and footer. Just your form is delivered. This makes it possible to use your form or post lists without loading your complete Theme.
 
+<h4>Short Video Showcase the Plugin!</h4>
+[youtube https://youtu.be/2qbkzhHfu_M]
+
 <h4>Dependencies</h4>
 This is the BuddyForms Remote extension. You need the BuddyForms plugin installed for the plugin to work. <a href="http://buddyforms.com" target="_blank">Get BuddyForms now!</a>
 
@@ -66,10 +69,8 @@ You need the BuddyForms plugin installed for the plugin to work.
 
 == Screenshots ==
 
-1. **Toggle Form** - The Toggle with a form
-2. **Toggle Posts List** - The Toggle with the users posts list
-3. **Form Builder Settings** - Enable Remote forms and generate the embed code
-3. **Use in iFrames** - Use the endpoints in iframes
+1. **Form Builder Settings** - The Form Builder Metabox enable remote and generate the embed code
+2. **New Form Endpoints** - Display the form or pots listings in iframe without loading your theme
 
 == Changelog ==
 
