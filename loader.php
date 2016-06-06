@@ -28,38 +28,43 @@
  ****************************************************************************
  */
 
-function buddyforms_remote_init(){
-    define('BUDDYFORMS_REMOTE_PLUGIN_URL', plugin_dir_url( __FILE__ ));
-    define('BUDDYFORMS_REMOTE_PLUGIN_PATH', dirname(__FILE__) . '/');
+function buddyforms_remote_init() {
+	define( 'BUDDYFORMS_REMOTE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+	define( 'BUDDYFORMS_REMOTE_PLUGIN_PATH', dirname( __FILE__ ) . '/' );
 
-    require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/admin/form-elements.php' );
-    require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/functions.php' );
+	require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/admin/form-elements.php' );
+	require_once( BUDDYFORMS_REMOTE_PLUGIN_PATH . 'includes/functions.php' );
 
 }
-add_action('init', 'buddyforms_remote_init');
 
-function buddyforms_remote_rewrite_rules($flush_rewrite_rules = FALSE){
-    global $buddyforms;
+add_action( 'init', 'buddyforms_remote_init' );
 
-    if ( !is_admin() )
-        return;
+function buddyforms_remote_rewrite_rules( $flush_rewrite_rules = false ) {
+	global $buddyforms;
 
-    if(!$buddyforms)
-        return;
+	if ( ! is_admin() ) {
+		return;
+	}
 
-    foreach ($buddyforms as $key => $buddyform) {
-        if(isset($buddyform['attached_page']) && isset($buddyform['remote'])){
-            $post_data = get_post($buddyform['attached_page'], ARRAY_A);
-            add_rewrite_rule($post_data['post_name'].'/remote-create/([^/]+)/([^/]+)/?', 'index.php?pagename='.$post_data['post_name'].'&bf_action=remote_create&bf_form_slug=$matches[1]&bf_parent_post_id=$matches[2]', 'top');
-            add_rewrite_rule($post_data['post_name'].'/remote-create/([^/]+)/?', 'index.php?pagename='.$post_data['post_name'].'&bf_action=remote_create&bf_form_slug=$matches[1]', 'top');
-            add_rewrite_rule($post_data['post_name'].'/remote-view/([^/]+)/?', 'index.php?pagename='.$post_data['post_name'].'&bf_action=remote_view&bf_form_slug=$matches[1]', 'top');
-            add_rewrite_rule($post_data['post_name'].'/remote-edit/([^/]+)/([^/]+)/?', 'index.php?pagename='.$post_data['post_name'].'&bf_action=remote_edit&bf_form_slug=$matches[1]&bf_post_id=$matches[2]', 'top');
-            add_rewrite_rule($post_data['post_name'].'/remote-revision/([^/]+)/([^/]+)/([^/]+)/?', 'index.php?pagename='.$post_data['post_name'].'&bf_action=remote_revision&bf_form_slug=$matches[1]&bf_post_id=$matches[2]&bf_rev_id=$matches[3]', 'top');
+	if ( ! $buddyforms ) {
+		return;
+	}
 
-            add_rewrite_rule($post_data['post_name'].'/bf-api/([^/]+)/?', 'index.php?pagename='.$post_data['post_name'].'&bf_action=api&bf_form_slug=$matches[1]', 'top');
-        }
-    }
-    if($flush_rewrite_rules)
-        flush_rewrite_rules();
+	foreach ( $buddyforms as $key => $buddyform ) {
+		if ( isset( $buddyform['attached_page'] ) && isset( $buddyform['remote'] ) ) {
+			$post_data = get_post( $buddyform['attached_page'], ARRAY_A );
+			add_rewrite_rule( $post_data['post_name'] . '/remote-create/([^/]+)/([^/]+)/?', 'index.php?pagename=' . $post_data['post_name'] . '&bf_action=remote_create&bf_form_slug=$matches[1]&bf_parent_post_id=$matches[2]', 'top' );
+			add_rewrite_rule( $post_data['post_name'] . '/remote-create/([^/]+)/?', 'index.php?pagename=' . $post_data['post_name'] . '&bf_action=remote_create&bf_form_slug=$matches[1]', 'top' );
+			add_rewrite_rule( $post_data['post_name'] . '/remote-view/([^/]+)/?', 'index.php?pagename=' . $post_data['post_name'] . '&bf_action=remote_view&bf_form_slug=$matches[1]', 'top' );
+			add_rewrite_rule( $post_data['post_name'] . '/remote-edit/([^/]+)/([^/]+)/?', 'index.php?pagename=' . $post_data['post_name'] . '&bf_action=remote_edit&bf_form_slug=$matches[1]&bf_post_id=$matches[2]', 'top' );
+			add_rewrite_rule( $post_data['post_name'] . '/remote-revision/([^/]+)/([^/]+)/([^/]+)/?', 'index.php?pagename=' . $post_data['post_name'] . '&bf_action=remote_revision&bf_form_slug=$matches[1]&bf_post_id=$matches[2]&bf_rev_id=$matches[3]', 'top' );
+
+			add_rewrite_rule( $post_data['post_name'] . '/bf-api/([^/]+)/?', 'index.php?pagename=' . $post_data['post_name'] . '&bf_action=api&bf_form_slug=$matches[1]', 'top' );
+		}
+	}
+	if ( $flush_rewrite_rules ) {
+		flush_rewrite_rules();
+	}
 }
-add_action('init', 'buddyforms_remote_rewrite_rules');
+
+add_action( 'init', 'buddyforms_remote_rewrite_rules' );

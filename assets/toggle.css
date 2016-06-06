@@ -4,6 +4,7 @@
     right: 20px;
     bottom: 20px;
 }
+
 #bf-remote-container {
     border-radius: 0;
     transition: all 0.2s cubic-bezier(0.5, 0, .6, 1) 0.35s;
@@ -15,6 +16,7 @@
     border-radius: 19px;
     z-index: 2;
 }
+
 .bf-open #bf-remote-container {
     border-width: 1px;
     height: 550px;
@@ -23,12 +25,14 @@
     bottom: 60px;
     right: 60px;
 }
+
 iframe#bf-frame {
-  border: 1px solid #ddd;
-  padding: 5px 0;
-  border-radius: 0;
-  background: #fafafa;
+    border: 1px solid #ddd;
+    padding: 5px 0;
+    border-radius: 0;
+    background: #fafafa;
 }
+
 /* The Burger Icon */
 .bf-burger {
     display: block;
@@ -54,11 +58,13 @@ iframe#bf-frame {
     background-color: #0c7572;
     z-index: 9999;
 }
+
 .bf-open .bf-burger {
     background-color: #cb0032;
     -webkit-transform: scale(0.5, 0.5) translate3d(0, 0, 0);
     transform: scale(0.5, 0.5) translate3d(0, 0, 0);
 }
+
 .bf-burger span {
     display: block;
     position: absolute;
@@ -71,6 +77,7 @@ iframe#bf-frame {
     transition: background 0s .3s;
     -o-transition: background 0s 0s;
 }
+
 .bf-open .bf-burger span {
     background: 0 0;
     transform: rotate(90deg);
@@ -78,6 +85,7 @@ iframe#bf-frame {
     transition: all 0.4s ease-in-out;
     -o-transition: all 0s ease;
 }
+
 .bf-burger span::after,
 .bf-burger span::before {
     position: absolute;
@@ -87,32 +95,37 @@ iframe#bf-frame {
     height: 5px;
     background-color: #fff;
     content: "";
-    -webkit-transition-duration: .3s,.3s;
-    transition-duration: .3s,.3s;
-    -webkit-transition-delay: .3s,0s;
-    transition-delay: .3s,0s;
+    -webkit-transition-duration: .3s, .3s;
+    transition-duration: .3s, .3s;
+    -webkit-transition-delay: .3s, 0s;
+    transition-delay: .3s, 0s;
 }
+
 .bf-burger span::before {
     top: -12px;
-    -webkit-transition-property: top,-webkit-transform;
-    transition-property: top,transform;
+    -webkit-transition-property: top, -webkit-transform;
+    transition-property: top, transform;
 }
+
 .bf-burger span::after {
     bottom: -12px;
-    -webkit-transition-property: bottom,-webkit-transform;
-    transition-property: bottom,transform;
+    -webkit-transition-property: bottom, -webkit-transform;
+    transition-property: bottom, transform;
 }
+
 .bf-open .bf-burger span::after,
 .bf-open .bf-burger span::before {
-    -webkit-transition-delay: 0s,.3s;
-    transition-delay: 0s,.3s;
+    -webkit-transition-delay: 0s, .3s;
+    transition-delay: 0s, .3s;
 }
+
 .bf-open .bf-burger span::before {
     top: 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
 .bf-open .bf-burger span::after {
     bottom: 0;
     -webkit-transform: rotate(-45deg);
