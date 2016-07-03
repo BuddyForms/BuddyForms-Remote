@@ -17,7 +17,7 @@ function buddyforms_remote_admin_settings_sidebar_metabox_html(){
     if(isset($buddyform['remote']))
         $remote = $buddyform['remote'];
 
-    $form_setup[] = new Element_Checkbox("<p>" . __('Enable Remote to generate new endpoinds and the toggle for this form. You need to save the form once to generate the new endpoints and toggle embed codes.', 'buddyforms') . "</p>", "buddyforms_options[remote]", array("remote" => "Enable Remote"), array('value' => $remote));
+    $form_setup[] = new Element_Checkbox("<p>" . __('Enable Remote', 'buddyforms') . "</p>", "buddyforms_options[remote]", array("remote" => "Enable"), array('value' => $remote, 'shortDesc' => 'Enable Remote to generate new endpoinds and the toggle for this form. You need to save the form once to generate the new endpoints and toggle embed codes.'));
 
     $form_setup[] = new Element_HTML(__('', 'buddyforms'));
 
@@ -43,20 +43,13 @@ function buddyforms_remote_admin_settings_sidebar_metabox_html(){
       $form_setup[] = new Element_HTML('
           <br><p><b>URL Endpoints</b></p>
           <p>You can use URL endpoints to display your forms in iFrames. Two new buttons have been added to the "publish" sitebar metabox.</p>
-          ');
-
-      $form_setup[] = new Element_HTML('
           <br><p><b>Tip</b></p>
           <p>Selecting "Display the User\'s Post List" in the Form Setup "After Submission" will generate a closed workflow and enable posting and editing within the Toggle or iFrame.</p>
           ');
 
     }
 
-    foreach($form_setup as $key => $field){
-        echo '<div class="buddyforms_field_label">' . $field->getLabel() . '</div>';
-        echo '<div class="buddyforms_field_description">' . $field->getShortDesc() . '</div>';
-        echo '<div class="buddyforms_form_field">' . $field->render() . '</div>';
-    }
+    buddyforms_display_field_group_table($form_setup);
 
 }
 add_filter('add_meta_boxes','buddyforms_remote_admin_settings_sidebar_metabox');
