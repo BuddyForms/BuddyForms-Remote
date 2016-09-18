@@ -2,6 +2,8 @@
 function buddyforms_remote_admin_settings_sidebar_metabox(){
     add_meta_box('buddyforms_remote', __("Remote",'buddyforms'), 'buddyforms_remote_admin_settings_sidebar_metabox_html', 'buddyforms', 'advanced', 'low');
     add_filter('postbox_classes_buddyforms_buddyforms_remote','buddyforms_metabox_class');
+    add_filter('postbox_classes_buddyforms_buddyforms_remote','buddyforms_metabox_show_if_form_type_posts');
+    add_filter('postbox_classes_buddyforms_buddyforms_remote','buddyforms_metabox_show_if_post_type_none');
 }
 
 function buddyforms_remote_admin_settings_sidebar_metabox_html(){
