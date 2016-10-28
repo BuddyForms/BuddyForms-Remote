@@ -1,9 +1,9 @@
 === BuddyForms Remote ===
 Contributors: svenl77, BuddyForms
 Tags: buddypress, user, members, profiles, custom post types, taxonomy, frontend posting, frontend editing, remote, iframe, embed, embedded, toggle
-Requires at least: WordPress 3.9
-Tested up to: WordPress 4.4.2
-Stable tag: 1.0
+Requires at least: 3.9
+Tested up to: 4.6.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,14 @@ You need the BuddyForms plugin installed for the plugin to work.
 2. **New Form Endpoints** - Display the form or pots listings in iframe without loading your theme
 
 == Changelog ==
+
+= 1.0.1 =
+Spelling correction
+Create new functions to show hide metaboxes
+Work on the conditionals admin ui
+Add postbox_classes to make the postbox visible.
+Use buddyforms_display_field_group_table to display options
+Spelling correction
 
 = 1.0 =
 final 1.0 version
