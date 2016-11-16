@@ -1,5 +1,5 @@
 === BuddyForms Remote ===
-Contributors: svenl77, BuddyForms
+Contributors: svenl77, konradS, BuddyForms, themekraft
 Tags: buddypress, user, members, profiles, custom post types, taxonomy, frontend posting, frontend editing, remote, iframe, embed, embedded, toggle
 Requires at least: 3.9
 Tested up to: 4.6.1
