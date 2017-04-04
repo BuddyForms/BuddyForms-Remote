@@ -1,11 +1,11 @@
 <?php
 /*
  Plugin Name: BuddyForms Remote
- Plugin URI: http://buddyforms.com/downloads/buddyforms-hierarchical-posts/
+ Plugin URI: https://themekraft.com/products/remote-embed-forms/
  Description: BuddyForms Remote provides your Forms where ever they are needed! Use BuddyForms Forms on any Website (WP and NON WP Sites) Inline or as Toggle.
  Version: 1.0.3
- Author: Sven Lehnert
- Author URI: https://profiles.wordpress.org/svenl77
+ Author: ThemeKraft
+ Author URI: http://themekraft.com/
  License: GPLv2 or later
  Network: false
 
