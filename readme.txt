@@ -2,8 +2,8 @@
 Contributors: svenl77, konradS, BuddyForms, themekraft
 Tags: buddypress, user, members, profiles, custom post types, taxonomy, frontend posting, frontend editing, remote, iframe, embed, embedded, toggle
 Requires at least: 3.9
-Tested up to: 4.7
-Stable tag: 1.0.3
+Tested up to: 4.7.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,9 @@ You need the BuddyForms plugin installed for the plugin to work.
 2. **New Form Endpoints** - Display the form or pots listings in iframe without loading your theme
 
 == Changelog ==
+
+= 1.0.4 =
+Added Freemius Integration
 
 = 1.0.3 =
 Fixed and issue with the dependencies check. The function tgmpa does not accepted an empty array.
