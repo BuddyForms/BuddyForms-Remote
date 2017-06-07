@@ -2,7 +2,6 @@
 <style>
     html {
         margin-top: 0px !important;
-        background: #fafafa;
     }
     ul.buddyforms-list {
         margin: 20px -40px;
@@ -30,7 +29,8 @@
       color: #2e2e2e;
       font-size: 15px;
     }
-    .the_buddyforms_form {
+    .the_buddyforms_form form {
+        margin: 0 auto;
     }
     form#loginform {
       margin: 20px 0;
