@@ -3,7 +3,7 @@
  Plugin Name: BuddyForms Remote
  Plugin URI: https://themekraft.com/products/remote-embed-forms/
  Description: BuddyForms Remote provides your Forms where ever they are needed! Use BuddyForms Forms on any Website (WP and NON WP Sites) Inline or as Toggle.
- Version: 1.0.7
+ Version: 1.0.8
  Author: ThemeKraft
  Author URI: http://themekraft.com/
  License: GPLv2 or later
@@ -139,6 +139,10 @@ function buddyforms_remote_fs() {
 			'is_premium_only'     => true,
 			'has_paid_plans'      => true,
 			'is_org_compliant'    => false,
+			'trial'               => array(
+                    'days'               => 7,
+                    'is_require_payment' => false,
+            ),
 			'parent'              => array(
 				'id'         => '391',
 				'slug'       => 'buddyforms',
@@ -146,7 +150,7 @@ function buddyforms_remote_fs() {
 				'name'       => 'BuddyForms',
 			),
 			'menu'                => array(
-				'slug'           => 'edit.php?post_type=buddyforms',
+				'first-path' => 'plugins.php',
 				'support'        => false,
 			),
 			'bundle_license_auto_activation' => true,

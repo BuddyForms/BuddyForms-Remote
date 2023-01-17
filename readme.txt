@@ -2,8 +2,8 @@
 Contributors: svenl77, konradS, BuddyForms, themekraft
 Tags: buddypress, user, members, profiles, custom post types, taxonomy, frontend posting, frontend editing, remote, iframe, embed, embedded, toggle
 Requires at least: 3.9
-Tested up to: 6.0.2
-Stable tag: 1.0.7
+Tested up to: 6.1.1
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,11 @@ You need the BuddyForms plugin installed for the plugin to work.
 2. **New Form Endpoints** - Display the form or pots listings in iframe without loading your theme
 
 == Changelog ==
+= 1.0.8 - 16 Jan 2023 =
+* Enabled trial version.
+* Updated first path after activation.
+* Tested up to Wordpress 6.1.1
+
 = 1.0.7 - 04 Oct 2022 =
 * Fixed issue with plugin download url
 
